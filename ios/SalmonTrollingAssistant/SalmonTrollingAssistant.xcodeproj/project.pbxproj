@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8A1234561234567800000001 /* SalmonTrollingAssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1234561234567800000002 /* SalmonTrollingAssistantApp.swift */; };
+		8A1234561234567800000003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1234561234567800000004 /* ContentView.swift */; };
+		8A1234561234567800000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A1234561234567800000006 /* Assets.xcassets */; };
+		8A1234561234567800000007 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A1234561234567800000008 /* Preview Assets.xcassets */; };
+		8A1234561234567800000034 /* WeatherTideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1234561234567800000035 /* WeatherTideView.swift */; };
+		8A1234561234567800000036 /* SmartRecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1234561234567800000037 /* SmartRecommendationsView.swift */; };
+		8A1234561234567800000038 /* MyGearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1234561234567800000039 /* MyGearView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8A1234561234567800000009 /* SalmonTrollingAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalmonTrollingAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A1234561234567800000002 /* SalmonTrollingAssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalmonTrollingAssistantApp.swift; sourceTree = "<group>"; };
+		8A1234561234567800000004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8A1234561234567800000006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A1234561234567800000008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8A1234561234567800000021 /* DataManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DataManagementView.swift"; path = "Presentation/Views/DataManagementView.swift"; sourceTree = "<group>"; };
+		8A1234561234567800000023 /* OfflineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OfflineDataManager.swift"; path = "Domain/Services/OfflineDataManager.swift"; sourceTree = "<group>"; };
+		8A1234561234567800000025 /* OfflineDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OfflineDataAccessLayer.swift"; path = "Domain/Services/OfflineDataAccessLayer.swift"; sourceTree = "<group>"; };
+		8A1234561234567800000027 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location.swift"; path = "Domain/Models/Location.swift"; sourceTree = "<group>"; };
+		8A1234561234567800000029 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WeatherData.swift"; path = "Domain/Models/WeatherData.swift"; sourceTree = "<group>"; };
+		8A1234561234567800000031 /* TideData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TideData.swift"; path = "Domain/Models/TideData.swift"; sourceTree = "<group>"; };
+		8A1234561234567800000033 /* EquipmentRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EquipmentRecommendation.swift"; path = "Domain/Models/EquipmentRecommendation.swift"; sourceTree = "<group>"; };
+		8A1234561234567800000035 /* WeatherTideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTideView.swift; sourceTree = "<group>"; };
+		8A1234561234567800000037 /* SmartRecommendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartRecommendationsView.swift; sourceTree = "<group>"; };
+		8A1234561234567800000039 /* MyGearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGearView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A123456123456780000000A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8A123456123456780000000B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A1234561234567800000009 /* SalmonTrollingAssistant.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A123456123456780000000C /* SalmonTrollingAssistant */ = {
+			isa = PBXGroup;
+			children = (
+				8A123456123456780000000D /* Domain */,
+				8A123456123456780000000E /* Presentation */,
+				8A1234561234567800000002 /* SalmonTrollingAssistantApp.swift */,
+				8A1234561234567800000004 /* ContentView.swift */,
+				8A1234561234567800000037 /* SmartRecommendationsView.swift */,
+				8A1234561234567800000039 /* MyGearView.swift */,
+				8A1234561234567800000035 /* WeatherTideView.swift */,
+				8A1234561234567800000006 /* Assets.xcassets */,
+				8A123456123456780000000F /* Preview Content */,
+			);
+			path = SalmonTrollingAssistant;
+			sourceTree = "<group>";
+		};
+		8A123456123456780000000F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8A1234561234567800000008 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8A123456123456780000000D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8A1234561234567800000010 /* Models */,
+				8A1234561234567800000011 /* Services */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8A1234561234567800000010 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8A1234561234567800000011 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8A123456123456780000000E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8A1234561234567800000012 /* Views */,
+				8A1234561234567800000013 /* ViewModels */,
+				8A1234561234567800000014 /* Components */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8A1234561234567800000012 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8A1234561234567800000013 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8A1234561234567800000014 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8A1234561234567800000015 = {
+			isa = PBXGroup;
+			children = (
+				8A123456123456780000000C /* SalmonTrollingAssistant */,
+				8A123456123456780000000B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A1234561234567800000016 /* SalmonTrollingAssistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A1234561234567800000017 /* Build configuration list for PBXNativeTarget "SalmonTrollingAssistant" */;
+			buildPhases = (
+				8A1234561234567800000018 /* Sources */,
+				8A123456123456780000000A /* Frameworks */,
+				8A1234561234567800000019 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SalmonTrollingAssistant;
+			productName = SalmonTrollingAssistant;
+			productReference = 8A1234561234567800000009 /* SalmonTrollingAssistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A123456123456780000001A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					8A1234561234567800000016 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 8A123456123456780000001B /* Build configuration list for PBXProject "SalmonTrollingAssistant" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8A1234561234567800000015;
+			productRefGroup = 8A123456123456780000000B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A1234561234567800000016 /* SalmonTrollingAssistant */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A1234561234567800000019 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A1234561234567800000007 /* Preview Assets.xcassets in Resources */,
+				8A1234561234567800000005 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A1234561234567800000018 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A1234561234567800000003 /* ContentView.swift in Sources */,
+				8A1234561234567800000001 /* SalmonTrollingAssistantApp.swift in Sources */,
+				8A1234561234567800000034 /* WeatherTideView.swift in Sources */,
+				8A1234561234567800000036 /* SmartRecommendationsView.swift in Sources */,
+				8A1234561234567800000038 /* MyGearView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8A123456123456780000001C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8A123456123456780000001D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A123456123456780000001E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SalmonTrollingAssistant/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SalmonTrollingAssistant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8A123456123456780000001F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SalmonTrollingAssistant/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SalmonTrollingAssistant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A1234561234567800000017 /* Build configuration list for PBXNativeTarget "SalmonTrollingAssistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A123456123456780000001E /* Debug */,
+				8A123456123456780000001F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A123456123456780000001B /* Build configuration list for PBXProject "SalmonTrollingAssistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A123456123456780000001C /* Debug */,
+				8A123456123456780000001D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8A123456123456780000001A /* Project object */;
+}

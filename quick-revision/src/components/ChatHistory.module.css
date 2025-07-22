@@ -1,0 +1,5 @@
+.history {
+  padding: 20px 0;
+  overflow-y: auto;
+  max-height: 400px;
+}
