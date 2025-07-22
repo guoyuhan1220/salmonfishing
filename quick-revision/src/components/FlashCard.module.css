@@ -1,0 +1,96 @@
+.cardContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.front {
+  background-color: white;
+}
+
+.back {
+  background-color: var(--primary-color);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.question,
+.answer {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hint {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--medium-gray);
+}
+
+.back .hint {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex: 1;
+  margin: 0 0.5rem;
+}
+
+.incorrect {
+  background-color: var(--error-color);
+}
+
+.incorrect:hover {
+  background-color: #d32f2f;
+}
+
+.correct {
+  background-color: var(--success-color);
+}
+
+.correct:hover {
+  background-color: #388e3c;
+}
