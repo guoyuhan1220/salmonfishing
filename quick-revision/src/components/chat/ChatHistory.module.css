@@ -1,0 +1,99 @@
+.history {
+  padding: 20px 0;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 32px;
+  text-align: center;
+  color: #8c8c8c;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.emptyState h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #262626;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.typingIndicator {
+  display: flex;
+  margin-bottom: 16px;
+  animation: fadeIn 0.3s ease-in-out;
+  justify-content: flex-start;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.typingAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+  font-size: 14px;
+  background-color: #f5f0ff;
+  color: #9c27b0;
+}
+
+.typingContent {
+  max-width: 80px;
+}
+
+.typingText {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 12px 16px;
+  border-radius: 4px 18px 18px 18px;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #9c27b0;
+  margin-right: 4px;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  } 
+  40% { 
+    transform: scale(1.0);
+  }
+}

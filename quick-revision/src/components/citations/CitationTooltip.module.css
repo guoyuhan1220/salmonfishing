@@ -1,0 +1,86 @@
+.tooltip {
+  position: absolute;
+  z-index: 1000;
+  max-width: 300px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tooltipContent {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  font-size: 14px;
+}
+
+.tooltipContent::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 16px;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06);
+}
+
+.citationId {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1890ff;
+}
+
+.sourceTitle {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.sourceUrl {
+  display: block;
+  color: #1890ff;
+  text-decoration: none;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.sourceUrl:hover {
+  text-decoration: underline;
+}
+
+.sourceType {
+  color: #8c8c8c;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.sourceLocation {
+  color: #8c8c8c;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.sourceModel {
+  color: #8c8c8c;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.snippet {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-left: 3px solid #d9d9d9;
+  font-style: italic;
+  color: #595959;
+  font-size: 13px;
+  line-height: 1.5;
+}

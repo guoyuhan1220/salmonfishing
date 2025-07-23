@@ -1,0 +1,96 @@
+.container {
+  margin: 10px 0;
+  border-radius: 8px;
+  background-color: var(--background-secondary, #f5f5f5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: var(--background-tertiary, #eaeaea);
+  border-bottom: 1px solid var(--border-color, #ddd);
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary, #333);
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--text-secondary, #666);
+  cursor: pointer;
+  padding: 0;
+}
+
+.content {
+  padding: 10px 15px;
+}
+
+.actionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--primary-color, #0066cc);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.actionButton:hover {
+  background-color: var(--primary-color-dark, #0055aa);
+}
+
+.actionIcon {
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+.actionName {
+  font-weight: 500;
+}
+
+/* Expanded state */
+.expanded .content {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Collapsed state */
+.container:not(.expanded) .content {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .actionList {
+    flex-direction: column;
+  }
+  
+  .actionButton {
+    width: 100%;
+  }
+}
