@@ -87,23 +87,272 @@ export const ChatProvider = ({ children }) => {
     setIsGenerating(true);
 
     try {
-      // In a real implementation, this would call an AI service
-      // For now, we'll simulate a response
-      setTimeout(() => {
-        const assistantMessage = {
-          id: generateId(),
-          text: `I received your message: "${text}"`,
-          isUser: false,
-          timestamp: new Date()
-        };
+      // Create a placeholder message for the assistant that will be updated
+      const assistantMessageId = generateId();
+      const initialAssistantMessage = {
+        id: assistantMessageId,
+        text: "",
+        isUser: false,
+        timestamp: new Date(),
+        isGenerating: true,
+        isStreaming: true,
+        typingIndicator: true,
+        intermediateSteps: []
+      };
 
-        // Update session with assistant message
+      // Add the initial placeholder message
+      setSessions(prevSessions => {
+        return prevSessions.map(session => {
+          if (session.id === currentSessionId) {
+            return {
+              ...session,
+              messages: [...session.messages, initialAssistantMessage],
+              updatedAt: new Date()
+            };
+          }
+          return session;
+        });
+      });
+
+      // In a real implementation, this would call an AI service with streaming
+      // For now, we'll simulate a streaming response with intermediate steps
+      
+      // Simulate streaming response
+      const simulateStreamingResponse = async () => {
+        // Sample response text to stream
+        const responseChunks = [
+          "I'm ",
+          "analyzing ",
+          "your ",
+          "message",
+          "...\n\n",
+          "Based ",
+          "on ",
+          "what ",
+          "you've ",
+          "asked",
+          ", ",
+          "I ",
+          "can ",
+          "provide ",
+          "the ",
+          "following ",
+          "information",
+          ":\n\n"
+        ];
+        
+        // Add content based on keywords in the user's message
+        if (text.toLowerCase().includes('web') || text.toLowerCase().includes('internet')) {
+          responseChunks.push(
+            "According ",
+            "to ",
+            "recent ",
+            "web ",
+            "sources",
+            "[1]",
+            ", ",
+            "the ",
+            "internet ",
+            "continues ",
+            "to ",
+            "evolve ",
+            "rapidly ",
+            "with ",
+            "new ",
+            "technologies."
+          );
+        } else if (text.toLowerCase().includes('data') || text.toLowerCase().includes('research')) {
+          responseChunks.push(
+            "Research ",
+            "data",
+            "[1]",
+            " ",
+            "suggests ",
+            "that ",
+            "data-driven ",
+            "approaches ",
+            "are ",
+            "becoming ",
+            "more ",
+            "common ",
+            "across ",
+            "industries."
+          );
+        } else if (text.toLowerCase().includes('file') || text.toLowerCase().includes('document')) {
+          responseChunks.push(
+            "Based ",
+            "on ",
+            "your ",
+            "uploaded ",
+            "documents",
+            "[1]",
+            ", ",
+            "there ",
+            "are ",
+            "several ",
+            "key ",
+            "points ",
+            "to ",
+            "consider."
+          );
+        } else {
+          responseChunks.push(
+            "I've ",
+            "analyzed ",
+            "your ",
+            "request ",
+            "and ",
+            "based ",
+            "on ",
+            "my ",
+            "training ",
+            "data",
+            "[1]",
+            ", ",
+            "I ",
+            "can ",
+            "provide ",
+            "you ",
+            "with ",
+            "more ",
+            "information ",
+            "if ",
+            "needed."
+          );
+        }
+        
+        // Stream each chunk with a delay
+        let fullText = "";
+        let intermediateSteps = [];
+        
+        // First intermediate step
+        intermediateSteps = [
+          {
+            id: 1,
+            description: "Analyzing user query",
+            content: `Received user message: "${text}"\nAnalyzing intent and context...`
+          }
+        ];
+        
+        // Update with first step
+        updateAssistantMessage(assistantMessageId, "", true, intermediateSteps);
+        
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Second intermediate step
+        intermediateSteps = [
+          ...intermediateSteps,
+          {
+            id: 2,
+            description: "Formulating response",
+            content: "Based on the user's query, I'll provide a helpful response that addresses their needs."
+          }
+        ];
+        
+        // Update with second step
+        updateAssistantMessage(assistantMessageId, "", true, intermediateSteps);
+        
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Start streaming text chunks
+        for (let i = 0; i < responseChunks.length; i++) {
+          const chunk = responseChunks[i];
+          fullText += chunk;
+          
+          // Update the message with the new chunk
+          updateAssistantMessage(assistantMessageId, fullText, true, intermediateSteps);
+          
+          // Random delay between 50-150ms to simulate typing
+          await new Promise(resolve => setTimeout(resolve, Math.floor(Math.random() * 100) + 50));
+        }
+        
+        // Generate citations based on user input
+        let citations = [];
+        
+        // Add citations based on keywords in the user's message
+        if (text.toLowerCase().includes('web') || text.toLowerCase().includes('internet')) {
+          citations.push({
+            id: 1,
+            text: "The Evolution of the Web",
+            source: {
+              type: 'web',
+              title: 'Web Technology Trends',
+              url: 'https://example.com/web-trends',
+              snippet: "The internet continues to evolve with new technologies emerging every year."
+            }
+          });
+        } else if (text.toLowerCase().includes('data') || text.toLowerCase().includes('research')) {
+          citations.push({
+            id: 1,
+            text: "Data-Driven Research",
+            source: {
+              type: 'company',
+              title: 'Internal Research Report',
+              location: 'Research Database',
+              snippet: "Data-driven approaches have shown a 45% increase in adoption across industries."
+            }
+          });
+        } else if (text.toLowerCase().includes('file') || text.toLowerCase().includes('document')) {
+          citations.push({
+            id: 1,
+            text: "User Document Analysis",
+            source: {
+              type: 'file',
+              title: 'Uploaded Document',
+              fileId: 'doc-123456',
+              location: 'Page 5, Section 2.3',
+              snippet: "The key considerations outlined in this section provide a framework for implementation."
+            }
+          });
+        } else {
+          citations.push({
+            id: 1,
+            text: "AI Knowledge Base",
+            source: {
+              type: 'ai',
+              title: 'Large Language Model',
+              snippet: "Information derived from the model's training data up to its knowledge cutoff date."
+            }
+          });
+        }
+        
+        // Add final step
+        intermediateSteps = [
+          ...intermediateSteps,
+          {
+            id: 3,
+            description: "Final response",
+            content: fullText
+          }
+        ];
+        
+        // Final update with complete message
+        const finalMessage = {
+          id: assistantMessageId,
+          text: fullText,
+          isUser: false,
+          timestamp: new Date(),
+          isGenerating: false,
+          isStreaming: false,
+          typingIndicator: false,
+          citations: citations,
+          intermediateSteps: intermediateSteps
+        };
+        
+        // Update session with final assistant message
         setSessions(prevSessions => {
           return prevSessions.map(session => {
             if (session.id === currentSessionId) {
+              const updatedMessages = session.messages.map(msg => {
+                if (msg.id === assistantMessageId) {
+                  return finalMessage;
+                }
+                return msg;
+              });
+              
               return {
                 ...session,
-                messages: [...session.messages, assistantMessage],
+                messages: updatedMessages,
                 updatedAt: new Date()
               };
             }
@@ -156,9 +405,13 @@ export const ChatProvider = ({ children }) => {
           
           addActions([emailAction]);
         }
-
+        
         setIsGenerating(false);
-      }, 1000);
+      };
+      
+      // Start the streaming simulation
+      simulateStreamingResponse();
+      
     } catch (error) {
       console.error('Error generating response:', error);
       setIsGenerating(false);
@@ -186,6 +439,36 @@ export const ChatProvider = ({ children }) => {
       });
     }
   };
+  
+  // Helper function to update assistant message during streaming
+  const updateAssistantMessage = (messageId, text, isGenerating = true, intermediateSteps = []) => {
+    setSessions(prevSessions => {
+      return prevSessions.map(session => {
+        if (session.id === currentSessionId) {
+          const updatedMessages = session.messages.map(msg => {
+            if (msg.id === messageId) {
+              return {
+                ...msg,
+                text: text,
+                isGenerating: isGenerating,
+                typingIndicator: isGenerating && text.length > 0,
+                intermediateSteps: intermediateSteps
+              };
+            }
+            return msg;
+          });
+          
+          return {
+            ...session,
+            messages: updatedMessages,
+            updatedAt: new Date()
+          };
+        }
+        return session;
+      });
+    });
+  };
+  };
 
   // Upload a file
   const uploadFile = async (file) => {
@@ -198,7 +481,8 @@ export const ChatProvider = ({ children }) => {
       type: file.type,
       size: file.size,
       uploadedAt: new Date(),
-      processingStatus: 'pending'
+      processingStatus: 'pending',
+      uploadProgress: 0
     };
 
     // Add file to uploaded files
@@ -219,51 +503,71 @@ export const ChatProvider = ({ children }) => {
     });
 
     try {
-      // Simulate file processing
-      setTimeout(() => {
-        // Update file status to processing
+      // In a real implementation, we would use FileProcessingService
+      // For now, simulate file upload and processing with progress updates
+      
+      // Simulate upload progress
+      let progress = 0;
+      const progressInterval = setInterval(() => {
+        progress += 5;
+        const currentProgress = Math.min(progress, 100);
+        
+        // Update file upload progress
         setUploadedFiles(prev => 
           prev.map(f => 
             f.id === newFile.id 
-              ? { ...f, processingStatus: 'processing' } 
+              ? { ...f, uploadProgress: currentProgress } 
               : f
           )
         );
-
-        // Simulate processing completion
-        setTimeout(() => {
-          // Update file status to completed
+        
+        if (progress >= 100) {
+          clearInterval(progressInterval);
+          
+          // Update file status to processing
           setUploadedFiles(prev => 
             prev.map(f => 
               f.id === newFile.id 
-                ? { ...f, processingStatus: 'completed' } 
+                ? { ...f, processingStatus: 'processing' } 
                 : f
             )
           );
+          
+          // Simulate processing completion
+          setTimeout(() => {
+            // Update file status to completed
+            setUploadedFiles(prev => 
+              prev.map(f => 
+                f.id === newFile.id 
+                  ? { ...f, processingStatus: 'completed' } 
+                  : f
+              )
+            );
 
-          // Add system message about the file
-          const systemMessage = {
-            id: generateId(),
-            text: `File "${file.name}" has been processed. You can now ask questions about it.`,
-            isUser: false,
-            timestamp: new Date(),
-            isSystem: true
-          };
+            // Add system message about the file
+            const systemMessage = {
+              id: generateId(),
+              text: `File "${file.name}" has been processed. You can now ask questions about it.`,
+              isUser: false,
+              timestamp: new Date(),
+              isSystem: true
+            };
 
-          setSessions(prevSessions => {
-            return prevSessions.map(session => {
-              if (session.id === currentSessionId) {
-                return {
-                  ...session,
-                  messages: [...session.messages, systemMessage],
-                  updatedAt: new Date()
-                };
-              }
-              return session;
+            setSessions(prevSessions => {
+              return prevSessions.map(session => {
+                if (session.id === currentSessionId) {
+                  return {
+                    ...session,
+                    messages: [...session.messages, systemMessage],
+                    updatedAt: new Date()
+                  };
+                }
+                return session;
+              });
             });
-          });
-        }, 2000);
-      }, 1000);
+          }, 2000);
+        }
+      }, 100);
     } catch (error) {
       console.error('Error processing file:', error);
       

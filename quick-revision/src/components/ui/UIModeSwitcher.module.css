@@ -1,38 +1,68 @@
-.container {
+.modeSwitcher {
   display: flex;
   align-items: center;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  padding: 4px;
-}
-
-.modeButton {
-  display: flex;
-  align-items: center;
-  padding: 6px 12px;
-  border: none;
-  background: none;
+  padding: 8px 12px;
   border-radius: 6px;
+  border: none;
   cursor: pointer;
-  transition: all 0.2s;
-  margin-right: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
 }
 
-.modeButton:last-child {
-  margin-right: 0;
+.modeSwitcher:hover {
+  background-color: var(--background-hover);
 }
 
-.modeButton.active {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.modeSwitcher:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
 }
 
 .icon {
-  margin-right: 6px;
-  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 .label {
-  font-size: 14px;
-  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Focus mode specific styles */
+.focus {
+  background-color: var(--accent-color-light);
+  color: var(--accent-color);
+}
+
+.focus:hover {
+  background-color: var(--accent-color-lighter);
+}
+
+/* Compact mode specific styles */
+.compact {
+  background-color: var(--background-secondary);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .label {
+    display: none;
+  }
+  
+  .iconContainer {
+    margin-right: 0;
+  }
+  
+  .modeSwitcher {
+    padding: 8px;
+  }
 }

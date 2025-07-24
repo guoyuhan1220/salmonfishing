@@ -2,10 +2,18 @@
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
-  border-radius: 0 0 8px 8px;
+  border-radius: 8px;
   background-color: white;
-  padding: 10px 16px;
+  padding: 12px 120px 12px 16px;
   position: relative;
+  width: 100%;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.inputContainer:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 6px rgba(120, 0, 138, 0.1);
 }
 
 .input {
@@ -13,49 +21,7 @@
   border: none;
   outline: none;
   font-size: 16px;
-  padding: 8px 0;
-}
-
-.actions {
-  display: flex;
-  gap: 8px;
-  margin-right: 8px;
-}
-
-.actionButton {
-  background: none;
-  border: none;
-  color: #666;
-  font-size: 16px;
-  cursor: pointer;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-}
-
-.actionButton:hover {
-  background-color: #f5f5f5;
-}
-
-.sendButton {
-  background: none;
-  border: none;
-  color: #ccc;
-  font-size: 16px;
-  cursor: not-allowed;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.sendButton.active {
-  color: white;
-  background-color: #9c27b0;
-  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  color: var(--text-color);
 }

@@ -93,9 +93,14 @@ function CitationTooltip({ citation, position }) {
         left: position.x,
         top: position.y + 10
       }}
+      role="tooltip"
+      aria-live="polite"
     >
       <div className={styles.tooltipContent}>
-        <div className={styles.citationId}>Source {citation.id}</div>
+        <div className={styles.citationId}>
+          <span className={styles.citationBadge}>{citation.id}</span>
+          <span className={styles.citationText}>{citation.text}</span>
+        </div>
         {renderSourceInfo()}
         {citation.source.snippet && (
           <div className={styles.snippet}>

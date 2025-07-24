@@ -32,23 +32,23 @@
     - Implement file selection and preview
     - _Requirements: 3.1, 3.2_
 
-- [ ] 4. Create new components for advanced features
-  - [ ] 4.1 Implement CitationTooltip component
+- [-] 4. Create new components for advanced features
+  - [x] 4.1 Implement CitationTooltip component
     - Create tooltip UI
     - Implement positioning logic
     - _Requirements: 1.6, 6.2, 6.4_
   
-  - [ ] 4.2 Implement SourceViewer component
+  - [x] 4.2 Implement SourceViewer component
     - Create source details UI
     - Implement source type rendering (web, company resource, file)
     - _Requirements: 1.7, 6.3, 6.5, 6.6_
   
-  - [ ] 4.3 Implement IntermediateStepsViewer component
+  - [x] 4.3 Implement IntermediateStepsViewer component
     - Create step-by-step UI
     - Implement collapsible sections
     - _Requirements: 5.1, 5.2, 5.4, 5.5_
   
-  - [ ] 4.4 Implement FileUploader component
+  - [x] 4.4 Implement FileUploader component
     - Create upload UI with progress indicator
     - Implement file validation
     - _Requirements: 3.1, 3.2, 3.3, 3.6, 3.7_
@@ -59,39 +59,39 @@
     - _Requirements: 4.1, 4.2_
 
 - [ ] 5. Implement service integrations
-  - [ ] 5.1 Create AIService for LLM integration
+  - [x] 5.1 Create AIService for LLM integration
     - Implement API client
     - Add response streaming support
     - _Requirements: 2.1, 2.4_
   
-  - [ ] 5.2 Create ResourceService for company resource integration
+  - [x] 5.2 Create ResourceService for company resource integration
     - Implement API client for dashboards
     - Implement API client for research reports
     - Implement API client for spaces
     - _Requirements: 2.2, 2.4, 2.5_
   
-  - [ ] 5.3 Create WebContentService for web content integration
+  - [x] 5.3 Create WebContentService for web content integration
     - Implement URL fetching and processing
     - Add content extraction and summarization
     - _Requirements: 2.3, 2.4, 2.5_
   
-  - [ ] 5.4 Create FileProcessingService for file handling
+  - [x] 5.4 Create FileProcessingService for file handling
     - Implement file upload functionality
     - Add file processing and text extraction
     - _Requirements: 3.2, 3.3, 3.4, 3.5_
   
-  - [ ] 5.5 Create ActionService for actions and workflows
+  - [x] 5.5 Create ActionService for actions and workflows
     - Implement action detection and presentation
     - Add workflow execution support
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7_
 
-- [ ] 6. Implement error handling and feedback
-  - [ ] 6.1 Create ErrorHandler service
+- [x] 6. Implement error handling and feedback
+  - [x] 6.1 Create ErrorHandler service
     - Implement user-friendly error messages
     - Add retry mechanisms
     - _Requirements: 2.6, 3.6, 3.7, 4.7_
   
-  - [ ] 6.2 Implement loading states and progress indicators
+  - [x] 6.2 Implement loading states and progress indicators
     - Add loading indicators for message generation
     - Implement progress tracking for file uploads
     - _Requirements: 1.3, 3.3_
@@ -107,24 +107,24 @@
     - Add preference restoration on app load
     - _Requirements: 7.4, 7.5_
 
-- [ ] 8. Implement citation and source verification features
-  - [ ] 8.1 Create Citation model and rendering
+- [x] 8. Implement citation and source verification features
+  - [x] 8.1 Create Citation model and rendering
     - Implement citation numbering system
     - Add citation data structure
     - _Requirements: 6.1, 6.4_
   
-  - [ ] 8.2 Implement source linking and verification
+  - [x] 8.2 Implement source linking and verification
     - Add source button functionality
     - Implement source detail view
     - _Requirements: 6.3, 6.5, 6.6_
 
-- [ ] 9. Create response generation transparency features
-  - [ ] 9.1 Implement streaming response rendering
+- [x] 9. Create response generation transparency features
+  - [x] 9.1 Implement streaming response rendering
     - Add support for incremental message updates
     - Implement typing indicator
     - _Requirements: 1.3, 5.1_
   
-  - [ ] 9.2 Add intermediate steps visualization
+  - [x] 9.2 Add intermediate steps visualization
     - Create step rendering component
     - Implement step visibility toggle
     - _Requirements: 5.1, 5.2, 5.3, 5.5_
@@ -158,7 +158,7 @@
     - _Requirements: All_
 
 - [ ] 12. Finalize and integrate
-  - [ ] 12.1 Connect all components and services
+  - [x] 12.1 Connect all components and services
     - Integrate context providers
     - Wire up component interactions
     - _Requirements: All_

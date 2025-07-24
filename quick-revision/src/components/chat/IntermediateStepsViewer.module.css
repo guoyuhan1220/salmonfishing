@@ -5,6 +5,7 @@
   border: 1px solid #e8e8e8;
   overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .collapsed {
@@ -17,13 +18,26 @@
   justify-content: space-between;
   padding: 12px 16px;
   background-color: #f0f0f0;
+  user-select: none;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  flex-grow: 1;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
 }
 
 .header h3 {
   margin: 0;
   font-size: 16px;
   color: #262626;
+  font-weight: 600;
 }
 
 .toggleButton {
@@ -37,18 +51,116 @@
   justify-content: center;
   width: 24px;
   height: 24px;
+  transition: transform 0.2s ease;
+  margin-left: 8px;
+}
+
+.toggleButton:hover {
+  color: #1890ff;
+}
+
+.hideStepsButton {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #8c8c8c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.hideStepsButton:hover {
+  background-color: #e6e6e6;
+  color: #595959;
+}
+
+.stepsToggleContainer {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.stepsToggleButton {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stepsToggleButton:hover {
+  background-color: #e6f7ff;
+  border-color: #91d5ff;
+}
+
+.stepsToggleIcon {
+  margin-right: 8px;
+}
+
+.stepsToggleText {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.toolbarButton {
+  background: none;
+  border: none;
+  font-size: 12px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  color: #595959;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.toolbarButton:hover {
+  background-color: #e6f7ff;
+  color: #1890ff;
 }
 
 .content {
   padding: 16px;
-  max-height: 300px;
+  max-height: 400px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d9d9d9 #f0f0f0;
+}
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+  border-radius: 6px;
 }
 
 .step {
   margin-bottom: 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
 }
 
 .step:last-child {
@@ -57,17 +169,29 @@
   border-bottom: none;
 }
 
+.step:hover {
+  background-color: #fafafa;
+}
+
 .stepHeader {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.stepHeader:hover {
+  background-color: #f0f0f0;
 }
 
 .stepNumber {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
+  min-width: 24px;
   height: 24px;
   border-radius: 50%;
   background-color: #e6f7ff;
@@ -80,13 +204,58 @@
 .stepDescription {
   font-weight: 500;
   font-size: 14px;
+  flex-grow: 1;
+}
+
+.stepToggle {
+  background: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  color: #8c8c8c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.stepToggle:hover {
+  color: #1890ff;
 }
 
 .stepContent {
-  padding-left: 36px;
+  padding: 8px 8px 8px 36px;
   font-size: 14px;
   line-height: 1.5;
   white-space: pre-wrap;
+  border-left: 2px solid #e6f7ff;
+  margin-left: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+.calculation {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 3px solid #1890ff;
+  font-family: monospace;
+  margin: 8px 0;
+  overflow-x: auto;
+}
+
+.codeBlock {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 8px 0;
+  overflow-x: auto;
+  border: 1px solid #e8e8e8;
+  white-space: pre;
 }
 
 .loading {
@@ -127,11 +296,42 @@
   animation-delay: -0.16s;
 }
 
+.generatingIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  margin-top: 12px;
+  border-top: 1px dashed #e8e8e8;
+}
+
+.completionIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  margin-top: 12px;
+  color: #52c41a;
+  font-weight: 500;
+  border-top: 1px dashed #e8e8e8;
+}
+
 @keyframes bounce {
   0%, 80%, 100% { 
     transform: scale(0);
   } 
   40% { 
     transform: scale(1.0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

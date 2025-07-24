@@ -1,34 +1,45 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useUIContext } from '../../contexts/UIContext';
 import styles from './UIModeSwitcher.module.css';
 
-function UIModeSwitcher() {
-  const { mode, setMode } = useUIContext();
-
-  const handleModeChange = (newMode) => {
-    setMode(newMode);
+/**
+ * UIModeSwitcher component for switching between focus and compact modes
+ */
+function UIModeSwitcher({ currentMode, onModeChange }) {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const handleModeChange = () => {
+    const newMode = currentMode === 'focus' ? 'compact' : 'focus';
+    onModeChange(newMode);
   };
-
+  
   return (
-    <div className={styles.container}>
-      <button
-        className={`${styles.modeButton} ${mode === 'focus' ? styles.active : ''}`}
-        onClick={() => handleModeChange('focus')}
-        title="Focus Mode"
-      >
-        <span className={styles.icon}>🔍</span>
-        <span className={styles.label}>Focus</span>
-      </button>
-      <button
-        className={`${styles.modeButton} ${mode === 'compact' ? styles.active : ''}`}
-        onClick={() => handleModeChange('compact')}
-        title="Compact Mode"
-      >
-        <span className={styles.icon}>📐</span>
-        <span className={styles.label}>Compact</span>
-      </button>
-    </div>
+    <button 
+      className={`${styles.modeSwitcher} ${styles[currentMode]}`}
+      onClick={handleModeChange}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      aria-label={`Switch to ${currentMode === 'focus' ? 'compact' : 'focus'} mode`}
+    >
+      <div className={styles.iconContainer}>
+        <img 
+          src={currentMode === 'focus' ? './icons/Minimize.svg' : './icons/Maximize.svg'} 
+          alt={currentMode === 'focus' ? 'Compact' : 'Focus'} 
+          className={styles.icon}
+        />
+      </div>
+      <span className={styles.label}>
+        {isHovered 
+          ? `Switch to ${currentMode === 'focus' ? 'compact' : 'focus'} mode` 
+          : `${currentMode === 'focus' ? 'Focus' : 'Compact'} mode`}
+      </span>
+    </button>
   );
 }
+
+UIModeSwitcher.propTypes = {
+  currentMode: PropTypes.oneOf(['focus', 'compact']).isRequired,
+  onModeChange: PropTypes.func.isRequired
+};
 
 export default UIModeSwitcher;

@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ChatMessage.module.css';
 import CitationTooltip from '../citations/CitationTooltip';
 import SourceViewer from '../citations/SourceViewer';
+import IntermediateStepsViewer from './IntermediateStepsViewer';
+import LoadingIndicator from '../ui/LoadingIndicator';
 
 function ChatMessage({ message }) {
   const [showSourceViewer, setShowSourceViewer] = useState(false);
@@ -57,15 +59,24 @@ function ChatMessage({ message }) {
           );
         }
         
-        // Add the citation marker as an interactive element
+        // Add the citation marker as an interactive element with enhanced styling
         parts.push(
           <span 
             key={`citation-${index}`}
             className={styles.citation}
             onMouseEnter={(e) => handleCitationHover(citation, e)}
             onMouseLeave={handleCitationHoverEnd}
+            role="button"
+            tabIndex={0}
+            aria-label={`Citation ${citation.id}: ${citation.source.title}`}
+            onClick={(e) => handleCitationHover(citation, e)}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                handleCitationHover(citation, e);
+              }
+            }}
           >
-            {marker}
+            <sup className={styles.citationNumber}>{citation.id}</sup>
           </span>
         );
         
@@ -93,6 +104,16 @@ function ChatMessage({ message }) {
     message.isSystem ? styles.systemMessage : ''
   ].filter(Boolean).join(' ');
 
+  // Ref for the message content to scroll to bottom when streaming
+  const messageContentRef = useRef(null);
+  
+  // Scroll to bottom when streaming new content
+  useEffect(() => {
+    if (messageContentRef.current && message.isStreaming) {
+      messageContentRef.current.scrollTop = messageContentRef.current.scrollHeight;
+    }
+  }, [message.text, message.isStreaming]);
+
   return (
     <div className={messageClasses}>
       <div className={styles.avatar}>
@@ -102,28 +123,40 @@ function ChatMessage({ message }) {
         <div className={styles.sender}>
           {message.isUser ? 'You' : 'My assistant'}
         </div>
-        <div className={styles.text}>
-          {message.citations 
-            ? renderTextWithCitations(message.text, message.citations)
-            : <p>{message.text}</p>
-          }
-          
-          {/* Show intermediate steps if available */}
-          {message.intermediateSteps && message.intermediateSteps.length > 0 && (
-            <div className={styles.intermediateSteps}>
-              <h4>Reasoning Steps:</h4>
-              {message.intermediateSteps.map((step) => (
-                <div key={step.id} className={styles.step}>
-                  <div className={styles.stepHeader}>
-                    <span className={styles.stepNumber}>{step.id}</span>
-                    <span className={styles.stepDescription}>{step.description}</span>
-                  </div>
-                  <div className={styles.stepContent}>
-                    {step.content}
-                  </div>
-                </div>
-              ))}
+        <div className={styles.text} ref={messageContentRef}>
+          {message.isGenerating && !message.text ? (
+            <div className={styles.loadingContainer}>
+              <LoadingIndicator 
+                type="typing" 
+                size="small" 
+                text="Generating response" 
+                theme="light" 
+              />
             </div>
+          ) : (
+            <>
+              {message.citations 
+                ? renderTextWithCitations(message.text, message.citations)
+                : <p>{message.text}</p>
+              }
+              
+              {/* Show typing indicator at the end of streaming text */}
+              {message.typingIndicator && (
+                <div className={styles.typingIndicator}>
+                  <span className={styles.typingDot}></span>
+                  <span className={styles.typingDot}></span>
+                  <span className={styles.typingDot}></span>
+                </div>
+              )}
+            </>
+          )}
+          
+          {/* Use IntermediateStepsViewer component for steps */}
+          {message.intermediateSteps && (
+            <IntermediateStepsViewer 
+              steps={message.intermediateSteps} 
+              isGenerating={message.isGenerating} 
+            />
           )}
           
           {/* Show actions if available */}
@@ -147,8 +180,10 @@ function ChatMessage({ message }) {
             <button 
               className={styles.sourceButton}
               onClick={toggleSourceViewer}
+              aria-label={`View ${message.citations.length} sources`}
             >
-              Sources ({message.citations.length})
+              <span className={styles.sourceIcon}>📚</span>
+              <span className={styles.sourceText}>Sources ({message.citations.length})</span>
             </button>
           )}
         </div>
@@ -207,7 +242,10 @@ ChatMessage.propTypes = {
       })
     ),
     isError: PropTypes.bool,
-    isSystem: PropTypes.bool
+    isSystem: PropTypes.bool,
+    isGenerating: PropTypes.bool,
+    isStreaming: PropTypes.bool,
+    typingIndicator: PropTypes.bool
   }).isRequired
 };
 

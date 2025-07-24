@@ -54,6 +54,9 @@ export const UIProvider = ({ children }) => {
       ...prev, 
       showIntermediateSteps: !prev.showIntermediateSteps 
     }));
+    
+    // Log the change for debugging
+    console.log(`Intermediate steps visibility toggled to: ${!preferences.showIntermediateSteps}`);
   };
 
   // Set theme

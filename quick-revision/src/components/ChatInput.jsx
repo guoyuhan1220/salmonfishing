@@ -21,27 +21,6 @@ function ChatInput({ onSendMessage }) {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <div className={styles.actions}>
-        <button type="button" className={styles.actionButton} title="Attach file">
-          <span>📎</span>
-        </button>
-        <button type="button" className={styles.actionButton} title="Format text">
-          <span>📝</span>
-        </button>
-        <button type="button" className={styles.actionButton} title="Add code">
-          <span>⚡</span>
-        </button>
-        <button type="button" className={styles.actionButton} title="More options">
-          <span>⋯</span>
-        </button>
-      </div>
-      <button 
-        type="submit" 
-        className={`${styles.sendButton} ${message.trim() ? styles.active : ''}`}
-        disabled={!message.trim()}
-      >
-        <span>➤</span>
-      </button>
     </form>
   )
 }

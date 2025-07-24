@@ -31,9 +31,30 @@
 }
 
 .citationId {
-  font-weight: 600;
+  display: flex;
+  align-items: center;
   margin-bottom: 8px;
+}
+
+.citationBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #e6f7ff;
   color: #1890ff;
+  border: 1px solid #91d5ff;
+  border-radius: 10px;
+  padding: 0 6px;
+  margin-right: 8px;
+}
+
+.citationText {
+  font-weight: 600;
+  color: #262626;
 }
 
 .sourceTitle {
